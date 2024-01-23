@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
 import sys, random
 from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication, QHBoxLayout, QLabel
 from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
@@ -145,15 +144,15 @@ def drawSquare(painter, x, y, val, s):
         return
 
     color = QColor(colorTable[val])
-    painter.fillRect(x + 1, y + 1, s - 2, s - 2, color)
+    painter.fillRect(int(x) + 1, int(y) + 1, int(s) - 2, int(s) - 2, color)
 
     painter.setPen(color.lighter())
-    painter.drawLine(x, y + s - 1, x, y)
-    painter.drawLine(x, y, x + s - 1, y)
+    painter.drawLine(int(x), int(y) + int(s) - 1, int(x), int(y))
+    painter.drawLine(int(x), int(y), int(x) + int(s) - 1, int(y))
 
     painter.setPen(color.darker())
-    painter.drawLine(x + 1, y + s - 1, x + s - 1, y + s - 1)
-    painter.drawLine(x + s - 1, y + s - 1, x + s - 1, y + 1)
+    painter.drawLine(int(x) + 1, int(y) + int(s) - 1, int(x) + int(s) - 1, int(y) + 1)
+    painter.drawLine(int(x) + int(s) - 1, int(y) + int(s) - 1, int(x) + int(s) - 1, int(y) + 1)
 
 
 class SidePanel(QFrame):
